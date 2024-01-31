@@ -1,0 +1,40 @@
+package myfirstprogram;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
+
+public class FbLogin {
+	
+	WebDriver driver;
+	
+	@Test(priority=1)
+	void openBrowser() {
+		System.setProperty("webdriver.gecko.driver", "E:\\chromedriver\\chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.get("https://flipcart.com");
+		driver.manage().window().maximize();
+		System.out.println(driver.getTitle()+ "\t opened in firefox");
+		}
+	
+	@Test(priority=2)
+	void login() throws Exception {
+		/*facebook login
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("kakimukkala.satishnarayana@gmail.com");
+		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("satish_09");
+		driver.findElement(By.xpath("//button[@name='login']")).click();*/
+		Thread.sleep(5000);
+		System.out.println("log in successful");
+	}
+		
+	
+	@Test(priority=3)
+void closeBrowser() {
+	driver.quit();
+	System.out.println("Broser has been closed");
+	
+}
+
+}
